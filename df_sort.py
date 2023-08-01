@@ -13,6 +13,7 @@ parser.add_argument("-r", "--reverse", action="store_true", help="decending orde
 
 args = parser.parse_args()
 
-df = pd.read_table(args.df_file, sep=args.delimiter, dtype=object)
+#df = pd.read_table(args.df_file, sep=args.delimiter, dtype=object)
+df = pd.read_table(args.df_file, sep=args.delimiter)
 df = df.sort_values(args.col_name, ascending=(not args.reverse))
 df.to_csv(sys.stdout, sep=args.delimiter, index=None)
